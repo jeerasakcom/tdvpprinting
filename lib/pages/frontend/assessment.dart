@@ -357,8 +357,6 @@ class _AssessmentState extends State<Assessment> {
                         SizedBox(
                           height: 10,
                         ),
-                        _submitButton(),
-                        _calButton(),
                         _buttoncal(),
                       ],
                     ),
@@ -372,7 +370,7 @@ class _AssessmentState extends State<Assessment> {
     );
   }
 
-  Widget _submitButton() {
+  Widget _buttoncal() {
     return RaisedButton(
       padding: const EdgeInsets.all(10),
       textColor: Colors.white,
@@ -390,34 +388,6 @@ class _AssessmentState extends State<Assessment> {
       child: Text(
         'คำนวณ',
         style: TextStyle(fontSize: 18, color: Colors.white),
-      ),
-    );
-  }
-
-  Widget _calButton() {
-    return Container(
-      child: ElevatedButton(
-        child: Text(
-          'คำนวณ',
-          style: TextStyle(fontSize: 18, color: Colors.white),
-        ),
-        onPressed: () {
-          SweetAlert.show(context,
-              title: "ราคาประเมิน",
-              subtitle:
-                  //" ราคา : ${FlutterMoneyFormatter(amount: ((_selectedSizePaper.pricestart * _selectedValuePage.numberpages) + _selectedBookbinding.pricebinding) * _selectedVolumeBook.numbervolumes).fastCalc(type: FastCalcType.addition, amount: 1.111).fastCalc(type: FastCalcType.substraction, amount: 2.222).output.nonSymbol} บาท",
-                  //" \n ราคา : ${FlutterMoneyFormatter(amount: ((_selectedSizePaper.pricestart * _selectedValuePage.numberpages) + _selectedBookbinding.pricebinding) * _selectedVolumeBook.numbervolumes).fastCalc(type: FastCalcType.addition, amount: 1.111).fastCalc(type: FastCalcType.substraction, amount: 2.222).output.nonSymbol} บาท \n ราคารวมVAT(7%) : ${FlutterMoneyFormatter(amount: (((_selectedSizePaper.pricestart * _selectedValuePage.numberpages) + _selectedBookbinding.pricebinding) * _selectedVolumeBook.numbervolumes) + (((_selectedSizePaper.pricestart * _selectedVolumeBook.numbervolumes) + _selectedBookbinding.pricebinding) * _selectedVolumeBook.numbervolumes) * 7 / 100).fastCalc(type: FastCalcType.addition, amount: 1.111).fastCalc(type: FastCalcType.substraction, amount: 2.222).output.nonSymbol} บาท",
-                  //" \n ขนาดกระดาษ :  ${_selectedSizePaper.name} \n รูปแบบกระดาษ :  ${_selectedTypePaper.name} \n รูปแบบการพิมพ์ :  ${_selectedFormatPrint.name} \n จำนวนหน้าทั้งหมด :  ${_selectedValuePage.name} หน้า \n วิธีการเข้าเล่ม :  ${_selectedBookbinding.name} \n จำนวนเล่มที่ต้องการ :  ${_selectedVolumeBook.name} เล่ม \n ราคา : ${FlutterMoneyFormatter(amount: ((_selectedSizePaper.pricestart * _selectedValuePage.numberpages) + _selectedBookbinding.pricebinding) * _selectedVolumeBook.numbervolumes).fastCalc(type: FastCalcType.addition, amount: 1.111).fastCalc(type: FastCalcType.substraction, amount: 2.222).output.nonSymbol} บาท \n ราคารวมVAT(7%) : ${FlutterMoneyFormatter(amount: (((_selectedSizePaper.pricestart * _selectedValuePage.numberpages) + _selectedBookbinding.pricebinding) * _selectedVolumeBook.numbervolumes) + ((((_selectedSizePaper.pricestart * _selectedVolumeBook.numbervolumes) + _selectedBookbinding.pricebinding) * _selectedVolumeBook.numbervolumes) * 7 ) / 100).fastCalc(type: FastCalcType.addition, amount: 1.111).fastCalc(type: FastCalcType.substraction, amount: 2.222).output.nonSymbol} บาท",
-                  " ขนาดกระดาษ :  ${_selectedSizePaper.name} \n รูปแบบกระดาษ :  ${_selectedTypePaper.name} \n รูปแบบการพิมพ์ :  ${_selectedFormatPrint.name} \n จำนวนหน้าทั้งหมด :  ${_selectedValuePage.name} หน้า \n วิธีการเข้าเล่ม :  ${_selectedBookbinding.name} \n จำนวนเล่มที่ต้องการ :  ${_selectedVolumeBook.name} เล่ม \n ราคา : ${FlutterMoneyFormatter(amount: ((_selectedSizePaper.pricestart * _selectedValuePage.numberpages) + _selectedBookbinding.pricebinding) * _selectedVolumeBook.numbervolumes).fastCalc(type: FastCalcType.addition, amount: 1.111).fastCalc(type: FastCalcType.substraction, amount: 2.222).output.nonSymbol} บาท",
-              style: SweetAlertStyle.success);
-        },
-        style: ElevatedButton.styleFrom(
-          primary: Colors.red,
-          onPrimary: Colors.white,
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(8),
-          ),
-        ),
       ),
     );
   }
@@ -450,38 +420,6 @@ class _AssessmentState extends State<Assessment> {
           ],
         ),
       ),
-    );
-  }
-
-  Widget _buttoncal() {
-    return InkWell(
-      child: Container(
-        width: MediaQuery.of(context).size.width,
-        padding: EdgeInsets.symmetric(vertical: 5),
-        alignment: Alignment.center,
-        decoration: BoxDecoration(
-            borderRadius: BorderRadius.all(Radius.circular(8)),
-            gradient: LinearGradient(
-                begin: Alignment.centerLeft,
-                end: Alignment.centerRight,
-                colors: [Color(0xfffbb448), Color(0xfff7892b)])),
-        child: Text(
-          'คำนวณ',
-          style: TextStyle(fontSize: 18, color: Colors.white),
-        ),
-      ),
-      onTap: () {
-        SweetAlert.show(
-          context,
-          title: "ราคาประเมิน",
-          subtitle:
-              //" ราคา : ${FlutterMoneyFormatter(amount: ((_selectedSizePaper.pricestart * _selectedValuePage.numberpages) + _selectedBookbinding.pricebinding) * _selectedVolumeBook.numbervolumes).fastCalc(type: FastCalcType.addition, amount: 1.111).fastCalc(type: FastCalcType.substraction, amount: 2.222).output.nonSymbol} บาท",
-              //" \n ราคา : ${FlutterMoneyFormatter(amount: ((_selectedSizePaper.pricestart * _selectedValuePage.numberpages) + _selectedBookbinding.pricebinding) * _selectedVolumeBook.numbervolumes).fastCalc(type: FastCalcType.addition, amount: 1.111).fastCalc(type: FastCalcType.substraction, amount: 2.222).output.nonSymbol} บาท \n ราคารวมVAT(7%) : ${FlutterMoneyFormatter(amount: (((_selectedSizePaper.pricestart * _selectedValuePage.numberpages) + _selectedBookbinding.pricebinding) * _selectedVolumeBook.numbervolumes) + (((_selectedSizePaper.pricestart * _selectedVolumeBook.numbervolumes) + _selectedBookbinding.pricebinding) * _selectedVolumeBook.numbervolumes) * 7 / 100).fastCalc(type: FastCalcType.addition, amount: 1.111).fastCalc(type: FastCalcType.substraction, amount: 2.222).output.nonSymbol} บาท",
-              //" \n ขนาดกระดาษ :  ${_selectedSizePaper.name} \n รูปแบบกระดาษ :  ${_selectedTypePaper.name} \n รูปแบบการพิมพ์ :  ${_selectedFormatPrint.name} \n จำนวนหน้าทั้งหมด :  ${_selectedValuePage.name} หน้า \n วิธีการเข้าเล่ม :  ${_selectedBookbinding.name} \n จำนวนเล่มที่ต้องการ :  ${_selectedVolumeBook.name} เล่ม \n ราคา : ${FlutterMoneyFormatter(amount: ((_selectedSizePaper.pricestart * _selectedValuePage.numberpages) + _selectedBookbinding.pricebinding) * _selectedVolumeBook.numbervolumes).fastCalc(type: FastCalcType.addition, amount: 1.111).fastCalc(type: FastCalcType.substraction, amount: 2.222).output.nonSymbol} บาท \n ราคารวมVAT(7%) : ${FlutterMoneyFormatter(amount: (((_selectedSizePaper.pricestart * _selectedValuePage.numberpages) + _selectedBookbinding.pricebinding) * _selectedVolumeBook.numbervolumes) + ((((_selectedSizePaper.pricestart * _selectedVolumeBook.numbervolumes) + _selectedBookbinding.pricebinding) * _selectedVolumeBook.numbervolumes) * 7 ) / 100).fastCalc(type: FastCalcType.addition, amount: 1.111).fastCalc(type: FastCalcType.substraction, amount: 2.222).output.nonSymbol} บาท",
-              " ขนาดกระดาษ :  ${_selectedSizePaper.name} \n รูปแบบกระดาษ :  ${_selectedTypePaper.name} \n รูปแบบการพิมพ์ :  ${_selectedFormatPrint.name} \n จำนวนหน้าทั้งหมด :  ${_selectedValuePage.name} หน้า \n วิธีการเข้าเล่ม :  ${_selectedBookbinding.name} \n จำนวนเล่มที่ต้องการ :  ${_selectedVolumeBook.name} เล่ม \n ราคา : ${FlutterMoneyFormatter(amount: ((_selectedSizePaper.pricestart * _selectedValuePage.numberpages) + _selectedBookbinding.pricebinding) * _selectedVolumeBook.numbervolumes).fastCalc(type: FastCalcType.addition, amount: 1.111).fastCalc(type: FastCalcType.substraction, amount: 2.222).output.nonSymbol} บาท",
-          style: SweetAlertStyle.success,
-        );
-      },
     );
   }
 
